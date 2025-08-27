@@ -29,7 +29,7 @@ def get_app_data():
             return jsonify({'success': False, 'error': 'URL must contain "id=" parameter'})
         
         # Extract app ID from URL
-        app_id = app_url.split('id=')[1].split('&')[0].split('?')[0]
+        app_id = url.split('id=')[1].split('&')[0]
         current_app_id = app_id
         
         # Fetch app data from Google Play
