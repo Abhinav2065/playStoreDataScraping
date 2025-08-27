@@ -28,8 +28,8 @@ def get_app_data():
         if 'id=' not in app_url:
             return jsonify({'success': False, 'error': 'URL must contain "id=" parameter'})
         
-        # Extract app ID from URL
-        app_id = url.split('id=')[1].split('&')[0]
+        # Extract app ID from URL - FIXED: using app_url instead of url
+        app_id = app_url.split('id=')[1].split('&')[0]
         current_app_id = app_id
         
         # Fetch app data from Google Play
@@ -50,7 +50,6 @@ def get_app_data():
         return jsonify({'success': False, 'error': 'Invalid URL format'})
     except Exception as e:
         return jsonify({'success': False, 'error': f'Error fetching app data: {str(e)}'})
-
 @app_flask.route('/get_installs')
 def get_installs():
     """Get install count"""
