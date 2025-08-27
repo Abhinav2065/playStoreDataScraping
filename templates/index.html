@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Play Store Data Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Google Play Store Data Finder!</h1>
+        
+        <div class="input-section">
+            <input type="text" id="appUrl" placeholder="Enter app URL (e.g., play.google.com/store/apps/details?id=com.example.app)" />
+            <button onclick="fetchAppData()">Get App Data</button>
+            
+        </div>
+
+        <div id="appInfo" class="hidden">
+            <h2>App: <span id="appName"></span></h2>
+            <div class="buttons">
+                <button onclick="showInstalls()">Show Real Installs</button>
+                <button onclick="showReviews()">Show Reviews</button>
+            </div>
+        </div>
+
+        <div id="result" class="result hidden">
+            <h3>Result:</h3>
+            <div id="resultContent"></div>
+        </div>
+
+        <div id="error" class="error hidden"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
